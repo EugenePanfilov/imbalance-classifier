@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "imbalance-classifier"
+version = "0.1.0"
+description = "End-to-end ML pipeline for imbalanced classification"
+readme = "README.md"
+authors = [{name="Your Name"}]
+requires-python = ">=3.9"
+dependencies = [
+  "numpy",
+  "pandas",
+  "scikit-learn>=1.2",
+  "matplotlib",
+  "pyyaml",
+  "joblib",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

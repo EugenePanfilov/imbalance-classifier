@@ -1,0 +1,35 @@
+cat > .gitignore <<'EOF'
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# virtualenvs
+.ci-venv/
+ci-venv/
+.venv/
+venv/
+
+# tools/cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage*
+htmlcov/
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# project artifacts
+artifacts/
+logs/
+*.log
+.ipynb_checkpoints/
+EOF
