@@ -5,11 +5,13 @@ import pandas as pd
 from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.base import clone
 
+
 def make_cv(cfg) -> RepeatedStratifiedKFold:
     cv_cfg = cfg.validation.cv
     return RepeatedStratifiedKFold(
         n_splits=cv_cfg.n_splits, n_repeats=cv_cfg.n_repeats, random_state=cfg.random_state
     )
+
 
 def oof_predict(pipe, X: pd.DataFrame, y: pd.Series, cv) -> Tuple[np.ndarray, np.ndarray]:
     proba = np.zeros(len(y), dtype=float)

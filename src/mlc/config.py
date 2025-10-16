@@ -5,10 +5,12 @@ from typing import Any, Dict, List, Optional, TypedDict
 import pathlib as _p
 import yaml
 
+
 class ModelSpec(TypedDict, total=False):
     name: str
     type: str  # "logistic" | "hist_gbdt" | "rf"
     params: Dict[str, Any]
+
 
 @dataclass
 class CVConfig:
@@ -16,9 +18,11 @@ class CVConfig:
     n_repeats: int = 1
     shuffle: bool = True
 
+
 @dataclass
 class ValidationConfig:
     cv: CVConfig = CVConfig()
+
 
 @dataclass
 class DataConfig:
@@ -35,22 +39,27 @@ class DataConfig:
     weights: Optional[List[float]] = dc.field(default_factory=lambda: [0.95, 0.05])
     n_clusters_per_class: int = 2
 
+
 @dataclass
 class CalibrationConfig:
     method: str = "sigmoid"  # or "isotonic"
+
 
 @dataclass
 class CostConfig:
     fn: float = 10.0
     fp: float = 1.0
 
+
 @dataclass
 class ReportsConfig:
     pr_k: Optional[int] = 100
 
+
 @dataclass
 class PathsConfig:
     artifacts_dir: str = "artifacts"
+
 
 @dataclass
 class Config:
@@ -63,6 +72,7 @@ class Config:
     reports: ReportsConfig
     paths: PathsConfig
 
+
 _SCHEMA_REQUIRED = {
     "random_state",
     "data",
@@ -74,12 +84,14 @@ _SCHEMA_REQUIRED = {
     "paths",
 }
 
+
 def _validate_schema(d: Dict[str, Any]) -> None:
     missing = _SCHEMA_REQUIRED - set(d)
     if missing:
         raise ValueError(f"Config missing sections: {sorted(missing)}")
     if not isinstance(d["models"], list) or not d["models"]:
         raise ValueError("Config.models must be a non-empty list")
+
 
 def load_config(path: str | _p.Path) -> Config:
     p = _p.Path(path)

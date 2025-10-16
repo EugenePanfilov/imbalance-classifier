@@ -4,6 +4,7 @@ from pathlib import Path
 from mlc.config import load_config
 from mlc.trainer import run_training
 
+
 def test_calibration_improves_brier_and_cost(tmp_path):
     cfg_path = tmp_path / "cfg.yaml"
     cfg_path.write_text((Path("configs/default.yaml").read_text()))

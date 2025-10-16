@@ -4,6 +4,7 @@ from typing import Tuple
 from .persistence import load_artifacts
 from .config import PathsConfig
 
+
 class InferenceModel:
     def __init__(self, preproc, model, threshold: float):
         self.preproc = preproc

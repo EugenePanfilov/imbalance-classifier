@@ -1,7 +1,6 @@
 from __future__ import annotations
 import os
 from typing import Tuple
-import numpy as np
 import pandas as pd
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
@@ -9,6 +8,7 @@ from .config import Config
 from .logging import setup_logging
 
 logger = setup_logging(name="mlc.data")
+
 
 def make_dataset(cfg: Config) -> tuple[pd.DataFrame, pd.Series]:
     if cfg.data.kind == "synthetic":
@@ -37,6 +37,7 @@ def make_dataset(cfg: Config) -> tuple[pd.DataFrame, pd.Series]:
         return X, y
     else:
         raise ValueError("Unsupported data.kind; use 'synthetic' or provide csv path")
+
 
 def train_test_split_stratified(
     X: pd.DataFrame, y: pd.Series, test_size: float, random_state: int, artifacts_dir: str
