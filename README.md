@@ -7,11 +7,8 @@
 2. Запускает линтеры (`ruff`, `mypy`).
 3. Прогоняет тесты (`pytest`).
 
-> ⚠️ Бейдж статуса можно добавить после публикации в GitHub, заменив `USER/REPO` на ваши значения:
->
-> ```
-> ![ci](https://github.com/USER/REPO/actions/workflows/ci.yml/badge.svg)
-> ```
+
+![ci](https://github.com/EugenePanfilov/imbalance-classifier/actions/workflows/ci.yml/badge.svg)
 
 ---
 
