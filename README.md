@@ -8,7 +8,7 @@
 3. Прогоняет тесты (`pytest`).
 
 
-![ci](https://github.com/EugenePanfilov/imbalance-classifier/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/EugenePanfilov/imbalance-classifier/actions/workflows/ci.yml/badge.svg)
 
 ---
 
